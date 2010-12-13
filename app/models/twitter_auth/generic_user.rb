@@ -1,38 +1,38 @@
 module TwitterAuth
-  class GenericUser
-    include MongoMapper::Document
+  class GenericUser < CouchRest::ExtendedDocument
+   attr_accessor :twitter_id, :remember_token, :remember_token_expires_at
     
-    attr_accessor :twitter_id, :remember_token, :remember_token_expires_at
-    
-   key :access_secret, String 
-   key :access_token, String 
-   key :created_at, String 
-   key :crypted_password, String 
-   key :description, String 
-   key :favourites_count, String 
-   key :followers_count, String 
-   key :friends_count, String 
-   key :location, String 
-   key :login, String 
-   key :name, String 
-   key :profile_background_color, String 
-   key :profile_background_image_url, String 
-   key :profile_background_tile, String 
-   key :profile_image_url, String 
-   key :profile_link_color, String 
-   key :profile_sidebar_border_color, String 
-   key :profile_sidebar_fill_color, String 
-   key :profile_text_color, String 
-   key :protected, String 
-   key :remember_token, String 
-   key :remember_token_expires_at, String 
-   key :salt, String 
-   key :statuses_count, String 
-   key :time_zone, String 
-   key :twitter_id, String 
-   key :updated_at, String 
-   key :url, String 
-   key :utc_offset, String 
+   property :access_secret, String 
+   property :access_token, String 
+   property :created_at, String 
+   property :crypted_password, String 
+   property :description, String 
+   property :favourites_count, String 
+   property :followers_count, String 
+   property :friends_count, String 
+   property :location, String 
+   property :login, String 
+   property :name, String 
+   property :profile_background_color, String 
+   property :profile_background_image_url, String 
+   property :profile_background_tile, String 
+   property :profile_image_url, String 
+   property :profile_link_color, String 
+   property :profile_sidebar_border_color, String 
+   property :profile_sidebar_fill_color, String 
+   property :profile_text_color, String 
+   property :protected, String 
+   property :remember_token, String 
+   property :remember_token_expires_at, String 
+   property :salt, String 
+   property :statuses_count, String 
+   property :time_zone, String 
+   property :twitter_id, String 
+   property :updated_at, String 
+   property :url, String 
+   property :utc_offset, String 
+
+   view_by :twitter_id
     
     TWITTER_ATTRIBUTES = [
       :name,

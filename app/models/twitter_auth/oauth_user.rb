@@ -1,10 +1,6 @@
 module TwitterAuth
   module OauthUser
     def self.included(base)
-      base.class_eval do
-        attr_accessor :access_token, :access_secret
-      end
-
       base.extend TwitterAuth::OauthUser::ClassMethods
       base.extend TwitterAuth::Dispatcher::Shared
     end
@@ -34,7 +30,7 @@ module TwitterAuth
         user = User.new_from_twitter_hash(user_info)
         user.access_token = access_token.token
         user.access_secret = access_token.secret
-        user.save
+        user.create
         user
       end
     end
